@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:39:40 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/14 16:27:58 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/17 15:45:52 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class Bureaucrat
 			private:
 				std::string _message;
 				std::string _bureaucratName;
+				std::string _completeMsg;
 			public:
 			GradeTooHighException(const std::string &m, const std::string &bN);
 			virtual ~GradeTooHighException() throw();
@@ -56,10 +57,13 @@ class Bureaucrat
 			private:
 				std::string _message;
 				std::string _bureaucratName;
+				std::string _completeMsg;
 			public:
 			GradeTooLowException(const std::string &m, const std::string &bN);
+			virtual ~GradeTooLowException() throw();
 			virtual const char* what() const throw();
 		};
 };
+std::ostream&	operator<<(std::ostream& o, const Bureaucrat& src);
 
 #endif

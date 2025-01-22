@@ -1,4 +1,4 @@
-NAME = Materia
+NAME = Bureaucrat
 DIR_SRC = src/
 DIR_OBJ = obj/
 CC = c++
