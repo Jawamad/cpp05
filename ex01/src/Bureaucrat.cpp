@@ -6,11 +6,12 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:39:32 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/22 16:50:38 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:59:14 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 /* constuctors */
 Bureaucrat::Bureaucrat() : _name("someone"), _grade(150){}
@@ -72,7 +73,7 @@ void	Bureaucrat::decrementGrade()
 void	Bureaucrat::signForm(Form& form)
 {
 	if (form.getSign())
-		std::cout << _name << " couldn't sign " << form.getName() << " because it is already signed.";
+		std::cout << _name << " couldn't sign " << form.getName() << " because it is already signed." << std::endl;
 	else
 	{
 		try

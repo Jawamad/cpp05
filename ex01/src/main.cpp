@@ -6,14 +6,16 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:44:32 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/17 15:45:14 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:00:36 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 int	main()
 {
+	std::cout << std::endl << "----########-test bureaucrat-########----"<< std::endl << std::endl;
 	try
 	{
 		std::cout << std::endl << "########-test no error-########"<< std::endl << std::endl;
@@ -28,7 +30,7 @@ int	main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error: " << e.what() << '\n';
 	}
 	try
 	{
@@ -44,7 +46,7 @@ int	main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error: " << e.what() << '\n';
 	}
 	try
 	{
@@ -60,7 +62,7 @@ int	main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error: " << e.what() << '\n';
 	}
 	try
 	{
@@ -76,7 +78,7 @@ int	main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error: " << e.what() << '\n';
 	}
 	try
 	{
@@ -92,7 +94,88 @@ int	main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error: " << e.what() << '\n';
 	}
+	std::cout << std::endl << "----########-test sign form-########----"<< std::endl << std::endl;
+	try
+	{
+		std::cout << std::endl << "########-test no error sign form-########"<< std::endl << std::endl;
+		Bureaucrat Bernard("Bernard", 150);
+		std::cout << Bernard << std::endl;
+		std::cout << "new stage form" << std::endl;
+		Form stage("stage form",150, 150);
+		std::cout << stage << std::endl;
+		Bernard.signForm(stage);
+		std::cout << stage << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << std::endl << "########-test no error: grade too low sign form-########"<< std::endl << std::endl;
+		Bureaucrat Maurice("Maurice", 150);
+		std::cout << Maurice << std::endl;
+		std::cout << "new stage form" << std::endl;
+		Form stage("stage form", 149, 150);
+		std::cout << stage << std::endl;
+		Maurice.signForm(stage);
+		std::cout << stage << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << std::endl << "########-test error: grade too low sign form-########"<< std::endl << std::endl;
+		Bureaucrat Marc("Marc", 150);
+		std::cout << Marc << std::endl;
+		std::cout << "new stage form" << std::endl;
+		Form stage("stage form", 149, 150);
+		std::cout << stage << std::endl;
+		stage.beSigned(Marc);
+		std::cout << stage << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: "<< e.what() << '\n';
+	}
+	try
+	{
+		std::cout << std::endl << "########-test no error sign form already sign-########"<< std::endl << std::endl;
+		Bureaucrat Bernard("Bernard", 150);
+		std::cout << Bernard << std::endl;
+		std::cout << "new stage form" << std::endl;
+		Form stage("stage form",150, 150);
+		std::cout << stage << std::endl;
+		Bernard.signForm(stage);
+		std::cout << stage << std::endl;
+		Bernard.signForm(stage);
+		std::cout << stage << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << std::endl << "########-test  error bad grade form -########"<< std::endl << std::endl;
+		Bureaucrat Bernard("Bernard", 150);
+		std::cout << Bernard << std::endl;
+		std::cout << "new stage form" << std::endl;
+		Form stage("stage form",151, 150);
+		std::cout << stage << std::endl;
+		Bernard.signForm(stage);
+		std::cout << stage << std::endl;
+		Bernard.signForm(stage);
+		std::cout << stage << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+
 	return 0;
 }

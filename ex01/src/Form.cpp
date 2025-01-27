@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:04:03 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/22 16:45:17 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:20:59 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* constructors */
 Form::Form() : _name("standard form"), _sign(false), _signGrade(150), _execGrade(150) {}
 
-Form::Form(const std::string n, unsigned int const sg, unsigned int const eg): _name (n), _sign(false), _signGrade(sg), _execGrade()
+Form::Form(const std::string n, unsigned int const sg, unsigned int const eg): _name (n), _sign(false), _signGrade(sg), _execGrade(eg)
 {
 	if (sg < 1)
 		throw GradeTooHighException("cannot initialise sign grade with this grade", _name);
@@ -81,4 +81,5 @@ void Form::beSigned(Bureaucrat const& bureaucrat)
 std::ostream&	operator<<(std::ostream& o, const Form& src)
 {
 	o << src.getName() << ", form signed " << src.getSign() << ", execution grade " << src.getExecGrade() << ", sign grade " << src.getSignGrade();
+	return o;
 }

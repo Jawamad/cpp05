@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:39:40 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/22 16:37:58 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:17:31 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+class Form;
 
 class Bureaucrat
 {
