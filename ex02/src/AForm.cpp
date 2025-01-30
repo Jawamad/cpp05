@@ -16,6 +16,7 @@
 AForm::AForm() : _name("standard form"), _sign(false), _signGrade(150), _execGrade(150) {}
 
 AForm::~AForm(){};
+
 AForm::AForm(const std::string n, unsigned int const sg, unsigned int const eg): _name (n), _sign(false), _signGrade(sg), _execGrade(eg)
 {
 	if (sg < 1)

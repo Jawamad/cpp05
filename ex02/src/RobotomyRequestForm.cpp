@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:55:12 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/29 15:21:14 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:14:25 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	AForm::execute(executor);
-	srand(time(0));
 	int	random_number = rand() % 2;
 	if (random_number)
 		std::cout << _target << " has been robotomized successfully" << std::endl;

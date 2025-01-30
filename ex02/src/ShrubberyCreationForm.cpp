@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:07:18 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/30 11:45:40 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:14:51 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ std::string ShrubberyCreationForm::getTarget() const
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	AForm::execute(executor);
-	std::ofstream file((_target + "_shruberry").c_str());
+	std::ofstream file((_target + "_shrubbery").c_str());
 	file << tree;
 	file.close();
-	std::cout << executor.getName() << " executed the " << getName() << std::endl;
+	std::cout << executor.getName() << " plants some shrubbery " << getName() << std::endl;
 }
 /* operators */
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)
