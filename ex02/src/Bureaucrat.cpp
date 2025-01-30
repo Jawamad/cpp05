@@ -6,12 +6,12 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:39:32 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/27 16:47:51 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:39:58 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 
 /* constuctors */
 Bureaucrat::Bureaucrat() : _name("someone"), _grade(150){}

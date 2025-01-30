@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:39:32 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/27 16:47:51 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:22:19 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	Bureaucrat::decrementGrade()
 		_grade++;
 }
 
-void	Bureaucrat::signForm(AForm& form)
+void	Bureaucrat::signForm(Form& form)
 {
 	if (form.getSign())
 		std::cout << _name << " couldn't sign " << form.getName() << " because it is already signed." << std::endl;

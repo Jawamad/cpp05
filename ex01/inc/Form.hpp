@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                           :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:39:02 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/27 16:42:25 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:23:47 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-class AForm
+class Form
 {
 	private:
 		std::string const _name;
@@ -25,12 +25,12 @@ class AForm
 		unsigned int const _execGrade;
 	public:
 		/* constructors */
-		AForm();
-		AForm(const std::string n, unsigned int const sg, unsigned int const eg);
-		AForm(const AForm& obj);
-		~AForm();
+		Form();
+		Form(const std::string n, unsigned int const sg, unsigned int const eg);
+		Form(const Form& obj);
+		virtual ~Form();
 		/* operator */
-		AForm	&operator=(const AForm &src);
+		Form	&operator=(const Form &src);
 		/* getters*/
 		std::string getName() const;
 		bool getSign() const;
@@ -63,6 +63,6 @@ class AForm
 		void beSigned(Bureaucrat const& bureaucrat);
 };
 
-std::ostream&	operator<<(std::ostream& o, const AForm& src);
+std::ostream&	operator<<(std::ostream& o, const Form& src);
 
 #endif

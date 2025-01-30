@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   Form.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:04:03 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/27 16:48:20 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:22:19 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 
 /* constructors */
 AForm::AForm() : _name("standard form"), _sign(false), _signGrade(150), _execGrade(150) {}
 
+AForm::~AForm(){};
 AForm::AForm(const std::string n, unsigned int const sg, unsigned int const eg): _name (n), _sign(false), _signGrade(sg), _execGrade(eg)
 {
 	if (sg < 1)
@@ -29,7 +30,13 @@ AForm::AForm(const std::string n, unsigned int const sg, unsigned int const eg):
 }
 AForm::AForm(const AForm &obj): _name(obj.getName()), _sign(obj._sign), _signGrade(obj.getSignGrade()), _execGrade(obj.getExecGrade()) {}
 
-AForm::~AForm(){}
+AForm&	AForm::operator=(const AForm& obj)
+{
+	if (this == &obj)
+		return *this;
+	_sign = obj._sign;
+	return (*this);
+}
 
 /* getters*/
 std::string AForm::getName() const
@@ -70,6 +77,15 @@ const char* AForm::GradeTooLowException::what() const throw()
 {
 	return _completeMsg.c_str();
 }
+AForm::NotSignedException::NotSignedException(const std::string &m, const std::string &fN): _message(m), _formName(fN)
+{
+	_completeMsg = _formName + " " + _message + ": the form is not signed.";
+}
+AForm::NotSignedException::~NotSignedException() throw() {}
+const char* AForm::NotSignedException::what() const throw()
+{
+	return _completeMsg.c_str();
+}
 /* members functions */
 void AForm::beSigned(Bureaucrat const& bureaucrat)
 {
@@ -78,6 +94,15 @@ void AForm::beSigned(Bureaucrat const& bureaucrat)
 	_sign = true;
 	std::cout << bureaucrat.getName() << " have signed " << _name << " form." << std::endl;
 }
+
+void AForm::execute(Bureaucrat const & executor) const
+{
+	if (!_sign)
+		throw NotSignedException("cannot be executed", _name);
+	if (executor.getGrade() > _execGrade)
+		throw GradeTooLowException("cannot be executed", _name);
+}
+
 std::ostream&	operator<<(std::ostream& o, const AForm& src)
 {
 	o << src.getName() << ", form signed " << src.getSign() << ", execution grade " << src.getExecGrade() << ", sign grade " << src.getSignGrade();

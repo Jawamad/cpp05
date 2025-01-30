@@ -6,12 +6,15 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:44:32 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/27 16:47:51 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:39:05 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
+#include "../inc/RobotomyRequestForm.hpp"
 
 int	main()
 {
@@ -176,6 +179,60 @@ int	main()
 	{
 		std::cerr << "Error: " << e.what() << '\n';
 	}
-
+	std::cout << std::endl << "----########-test exec special form-########----"<< std::endl << std::endl;
+	try
+	{
+		std::cout << std::endl << "########-test no error exec shrubbery-########"<< std::endl << std::endl;
+		Bureaucrat Bernard("Bernard", 1);
+		std::cout << Bernard << std::endl;
+		std::cout << "new stage form" << std::endl;
+		ShrubberyCreationForm shrubbery("field");
+		std::cout << shrubbery << std::endl;
+		Bernard.signForm(shrubbery);
+		std::cout << shrubbery << std::endl;
+		Bernard.signForm(shrubbery);
+		std::cout << shrubbery << std::endl;
+		shrubbery.execute(Bernard);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << std::endl << "########-test no error exec presidential pardon-########"<< std::endl << std::endl;
+		Bureaucrat Bernard("Bernard", 1);
+		std::cout << Bernard << std::endl;
+		std::cout << "new stage form" << std::endl;
+		PresidentialPardonForm pardon("regis");
+		std::cout << pardon << std::endl;
+		Bernard.signForm(pardon);
+		std::cout << pardon << std::endl;
+		Bernard.signForm(pardon);
+		std::cout << pardon << std::endl;
+		pardon.execute(Bernard);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << std::endl << "########-test no error exec robotomy-########"<< std::endl << std::endl;
+		Bureaucrat Bernard("Bernard", 1);
+		std::cout << Bernard << std::endl;
+		std::cout << "new stage form" << std::endl;
+		RobotomyRequestForm random("alive");
+		std::cout << random << std::endl;
+		Bernard.signForm(random);
+		std::cout << random << std::endl;
+		Bernard.signForm(random);
+		std::cout << random << std::endl;
+		random.execute(Bernard);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
 	return 0;
 }

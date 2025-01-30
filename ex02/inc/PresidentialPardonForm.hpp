@@ -6,19 +6,31 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:01:40 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/27 17:15:22 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:20:49 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef PRESIDENTIAL_PARDON_FORM
 # define PRESIDENTIAL_PARDON_FORM
 
 #include "AForm.hpp"
 
-class PresidentialPardonForm 
+class PresidentialPardonForm : public AForm
 {
-	
+	private:
+		std::string _target;
+	public:
+	/* constructors */
+		PresidentialPardonForm();
+		PresidentialPardonForm(PresidentialPardonForm& obj);
+		PresidentialPardonForm(const std::string& t);
+		~PresidentialPardonForm();
+	/* getters */
+		std::string getTarget() const;
+	/* operators */
+		PresidentialPardonForm	&operator=(const PresidentialPardonForm &src);
+	/* members */
+		virtual void execute(Bureaucrat const & executor) const;
 };
 
 #endif

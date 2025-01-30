@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   Form.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:39:02 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/27 16:47:51 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:22:19 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,20 @@ class AForm
 			virtual ~GradeTooLowException() throw();
 			virtual const char* what() const throw();
 		};
+		class NotSignedException : public std::exception
+		{
+			private:
+				std::string _message;
+				std::string _formName;
+				std::string _completeMsg;
+			public:
+			NotSignedException(const std::string &m, const std::string &fN);
+			virtual ~NotSignedException() throw();
+			virtual const char* what() const throw();
+		};
 		/* members functions */
 		void beSigned(Bureaucrat const& bureaucrat);
+		virtual void execute(Bureaucrat const & executor) const;
 };
 
 std::ostream&	operator<<(std::ostream& o, const AForm& src);

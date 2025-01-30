@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:44:32 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/27 16:47:51 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:22:19 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	main()
 		Bureaucrat Bernard("Bernard", 150);
 		std::cout << Bernard << std::endl;
 		std::cout << "new stage form" << std::endl;
-		AForm stage("stage form",150, 150);
+		Form stage("stage form",150, 150);
 		std::cout << stage << std::endl;
 		Bernard.signForm(stage);
 		std::cout << stage << std::endl;
@@ -118,7 +118,7 @@ int	main()
 		Bureaucrat Maurice("Maurice", 150);
 		std::cout << Maurice << std::endl;
 		std::cout << "new stage form" << std::endl;
-		AForm stage("stage form", 149, 150);
+		Form stage("stage form", 149, 150);
 		std::cout << stage << std::endl;
 		Maurice.signForm(stage);
 		std::cout << stage << std::endl;
@@ -133,7 +133,7 @@ int	main()
 		Bureaucrat Marc("Marc", 150);
 		std::cout << Marc << std::endl;
 		std::cout << "new stage form" << std::endl;
-		AForm stage("stage form", 149, 150);
+		Form stage("stage form", 149, 150);
 		std::cout << stage << std::endl;
 		stage.beSigned(Marc);
 		std::cout << stage << std::endl;
@@ -148,7 +148,7 @@ int	main()
 		Bureaucrat Bernard("Bernard", 150);
 		std::cout << Bernard << std::endl;
 		std::cout << "new stage form" << std::endl;
-		AForm stage("stage form",150, 150);
+		Form stage("stage form",150, 150);
 		std::cout << stage << std::endl;
 		Bernard.signForm(stage);
 		std::cout << stage << std::endl;
@@ -165,7 +165,7 @@ int	main()
 		Bureaucrat Bernard("Bernard", 150);
 		std::cout << Bernard << std::endl;
 		std::cout << "new stage form" << std::endl;
-		AForm stage("stage form",151, 150);
+		Form stage("stage form",151, 150);
 		std::cout << stage << std::endl;
 		Bernard.signForm(stage);
 		std::cout << stage << std::endl;
