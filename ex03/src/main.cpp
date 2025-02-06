@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:44:32 by flmuller          #+#    #+#             */
-/*   Updated: 2025/02/05 14:41:17 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:25:40 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main()
 	}
 	try
 	{
-		newform = raymond.makeForm("Shrubbery", "Robert");
+		newform = raymond.makeForm("shrubbery", "Robert");
 		peon.signForm(*newform);
 		std::cout << *newform << std::endl;
 		director.executeForm(*newform);
@@ -46,6 +46,5 @@ int	main()
 		std::cerr << "⚠️   Error: " << e.what() << '\n';
 	}
 	delete newform;
-	//delete newform1;
 	return 0;
 }

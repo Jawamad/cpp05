@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:39:40 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/30 16:58:48 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:09:04 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class AForm;
 class Bureaucrat
 {
 	private:
-		std::string		_name;
+		std::string	const	_name;
 		unsigned int	_grade;
 	public:
 		/* constuctors */

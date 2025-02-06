@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:22:44 by flmuller          #+#    #+#             */
-/*   Updated: 2025/02/05 14:42:29 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:24:36 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,35 +28,15 @@ Intern&	Intern::operator=(const Intern & obj)
 /* members */
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-	size_t result;
-	std::string	listOfForm[3] = {"Shrubbery", "Robotomy", "Presidential"};
-	for (size_t i = 0; i < 3; i++)
-	{
-		if (name == listOfForm[i])
-		{
-			result = i;
-			break;
+	std::string	names[3] = {"presidential", "shrubbery", "robotomy"};
+	AForm* (*formCreator[3])(std::string Target) = {PresidentialPardonForm::createForm, ShrubberyCreationForm::createForm, RobotomyRequestForm::createForm}; 
+	for (int i = 0; i < 4; i++) {
+		if (names[i] == name) {
+			std::cout << "Intern creates " << name << " form" << std::endl;
+			return formCreator[i](target);
 		}
 	}
-	std::cout << "Intern create ";
-	switch (result)
-	{
-	case 0:
-		std::cout << "a Shrubbery Creation Form" << std::endl;
-		return new ShrubberyCreationForm(target);
-		break;
-	case 1:
-		std::cout << "a Robotomy request Form" << std::endl;
-		return new RobotomyRequestForm(target);
-		break;
-	case 2:
-		std::cout << "a Presidential Pardon Form" << std::endl;
-		return new PresidentialPardonForm(target);
-		break;
-	default:
-		throw FormDoesntExistException(name, "cannot be create");
-		break;
-	}
+	throw FormDoesntExistException(name, "cannot be create");
 }
 /* exceptions */
 Intern::FormDoesntExistException::FormDoesntExistException(const std::string &m, const std::string &fN): _message(m), _formName(fN)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:01:40 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/29 15:20:49 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:52:37 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm	&operator=(const PresidentialPardonForm &src);
 	/* members */
 		virtual void execute(Bureaucrat const & executor) const;
+		static AForm*	createForm(std::string target);
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:09:51 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/30 11:45:08 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:38:51 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	AForm::execute(executor);
 	std::cout << executor.getName() << " execute the " << getName()<< " : "<< std::endl;
 	std::cout << _target <<" has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+AForm*	PresidentialPardonForm::createForm(std::string target) {
+	return new PresidentialPardonForm(target);
 }
 /* operators */
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm &obj)

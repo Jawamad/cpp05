@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:07:18 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/31 13:54:23 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:44:39 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	file << tree;
 	file.close();
 	std::cout << executor.getName() << " plants some shrubbery " << getName() << std::endl;
+}
+AForm*	ShrubberyCreationForm::createForm(std::string target) {
+	return new ShrubberyCreationForm(target);
 }
 /* operators */
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)

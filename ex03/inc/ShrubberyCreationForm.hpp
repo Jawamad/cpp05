@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:13:10 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/29 15:09:08 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:52:49 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class ShrubberyCreationForm : public AForm
 		std::string getTarget() const;
 	/* members */
 		virtual void execute(Bureaucrat const & executor) const;
+		static AForm*	createForm(std::string target);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:55:12 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/30 17:14:25 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:40:08 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		std::cout << _target << " has been robotomized successfully" << std::endl;
 	else
 		std::cout << "the robotomy failed" << std::endl;
+}
+AForm*	RobotomyRequestForm::createForm(std::string target) {
+	return new RobotomyRequestForm(target);
 }
