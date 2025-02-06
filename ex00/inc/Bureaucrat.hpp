@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:39:40 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/17 15:45:52 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:00:02 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Bureaucrat
 {
 	private:
-		std::string		_name;
+		std::string const		_name;
 		unsigned int	_grade;
 	public:
 		/* constuctors */

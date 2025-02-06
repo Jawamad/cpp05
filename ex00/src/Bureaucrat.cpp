@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flmuller <flmuller@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flmuller <flmuller@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:39:32 by flmuller          #+#    #+#             */
-/*   Updated: 2025/01/17 15:42:33 by flmuller         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:03:13 by flmuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ Bureaucrat::~Bureaucrat() {}
 /* operator */
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& src)
 {
-	if (this == &src)
-		return *this;
-	_name = src._name;
-	_grade = src._grade;
+	if (this != &src)
+		_grade = src._grade;
 	return *this;
 }
 
